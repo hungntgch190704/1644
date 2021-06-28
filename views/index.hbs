@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/string-strip-html/dist/string-strip-html.umd.js"></script>
+  </script>
+    </script>
+  </script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-white">Login</h1>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="title" class="text-white">Username</label>
+                <input type="text" class="form-control" placeholder="Username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="text-white">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                {{!-- <a class="btn btn-primary" type="submit">Login</a> --}}
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="/register" class="btn btn-warning">Register</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

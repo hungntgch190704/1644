@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/string-strip-html/dist/string-strip-html.umd.js"></script>
+  </script>
+    </script>
+  </script>
+    <title>Registers</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-white">Registers</h1>
+        
+        {{#each alert}}
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                    {{msg}}
+                </div>
+            </div>
+        {{/each}}
+
+        <form action="/register" method="post" id="form">
+            <div class="form-group">
+                <label for="email" class="text-white">Email</label>
+                <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                <span class="form-message">{{errors.username}}</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title" class="text-white">Username</label>
+                <input type="text" class="form-control" placeholder="Username" name="username" id="username">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="text-white">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <a href="/" class="btn btn-warning">Cancel</a>
+                <button type="submit" class="btn btn-primary">Registers</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

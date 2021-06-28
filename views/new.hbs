@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector: '#mytextarea'
+    });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/string-strip-html/dist/string-strip-html.umd.js"></script>
+  </script>
+    </script>
+  </script>
+    <title>New product page</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-white">New product page</h1>
+        <form action="/products" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title" class="text-white">Title</label>
+                <input type="text" class="form-control" placeholder="Title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="text-white">Price</label>
+                <input type="text" class="form-control" placeholder="Price" name="price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="text-white">Description</label>
+                <textarea type="text" class="form-control" rows="10" placeholder="Description" name="description" id="mytextarea"></textarea>
+            </div>
+
+            <div class="form">
+                <laUpload for="image" class="text-white">Upload Image</label>
+                <input type="file" name="image" id="image" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <a href="/" class="btn btn-warning">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
