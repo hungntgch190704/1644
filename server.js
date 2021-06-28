@@ -25,7 +25,8 @@ app.use(express.static("public"))
 app.use(authRoutes)
 app.use('/products', productRouter)
 
-
-app.listen(8080);
+const PORT = process.env.PORT || 8080
+app.listen(PORT);
+console.debug('Server listening on port' + PORT);
 
 
