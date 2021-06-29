@@ -29,9 +29,10 @@
                 <label for="price" class="text-white">Password</label>
                 <input type="password" class="form-control" placeholder="Password" name="password" required>
             </div>
-
+            {{#if errors}}
+            <span class="form-message badge bg-danger">{{errors}}</span>
+            {{/if}}
             <div class="form-group">
-                {{!-- <a class="btn btn-primary" type="submit">Login</a> --}}
                 <button type="submit" class="btn btn-primary">Login</button>
                 <a href="/register" class="btn btn-warning">Register</a>
             </div>

@@ -7,21 +7,46 @@ exports.GetRegisterPage = (req, res) => {
 }
 
 exports.PostRegister = (req, res) => {
-    const errors = validationResult(req)
-    if(!errors.isEmpty()) {
-        const alert = errors.array()
-        res.render('register', {alert})
+    // const errors = validationResult(req)
+    // if(!errors.isEmpty()) {
+    //     const alert = errors.array()
+    //     res.render('register', {alert})
+    // }
+    let errors = [];
+    let email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(req.body.email);
+    let username = /^[a-zA-Z0-9]+$/.test(req.body.username);
+    let password = req.body.password;
+    let flag = true;
+    if(!email){
+        errors["email"] = 'Email is invalid';
+        flag = false;
+    }
+    if (req.body.username.length<3){
+        console.log('dit me m');
+        errors["username"] = 'Username must be 3+ characters';
+        flag = false;
+    }
+    else if(!username){
+        errors["username"] = 'Username is invalid';
+        flag = false;
+    }
+    if(password.length<6){
+        errors["password"] = 'Password must be 6+ characters';
+        flag=false;
+    }
+    if(!flag){
+        res.render('register', {errors: errors})
     }
     else{
         Account.findOne({ username: req.body.username})
         .then(data =>{
             console.log(data);
             if(data){
-                let errors = {};
+                
                 if(data.username === req.body.username){
                     errors.username = "Username already exists";
                 }
-                res.json(errors);
+                res.render('register', {errors : errors});
             }
             else{
                 let newAccount = new Account({
@@ -34,11 +59,10 @@ exports.PostRegister = (req, res) => {
                         if(err) throw err;
                         newAccount.password = hash;
                         newAccount
-                            .save()
-                            .then(data => res.json(data))
-                            .catch(err => console.error(err))
+                            .save();
                     })
                 })
+                res.render('index');
             }
         })
     }
@@ -60,11 +84,12 @@ exports.handleLogin = (req, res) => {
                 sess.isLogin = true;
                 return res.redirect('/products/home')
             }
-            return res.render('index')
+            return res.render('index', {errors: 'Username or password is incorrect'})
+            //return res.json('anh duong sai roi');
         })
     })
     .catch(err =>{
-        res.json(err);
+        res.redirect('/', {errors: 'Username or password is incorrect'});
     })
 }
 

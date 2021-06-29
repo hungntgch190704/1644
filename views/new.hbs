@@ -24,15 +24,17 @@
 <body>
     <div class="container">
         <h1 class="mb-4 text-white">New product page</h1>
-        <form action="/products" method="post" enctype="multipart/form-data">
+        <form action="/products/add-products" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title" class="text-white">Title</label>
                 <input type="text" class="form-control" placeholder="Title" name="title" required>
+                <span class="form-message badge bg-danger">{{errors.title}}</span>
             </div>
 
             <div class="form-group">
                 <label for="price" class="text-white">Price</label>
                 <input type="text" class="form-control" placeholder="Price" name="price" required>
+                <span class="form-message badge bg-danger">{{errors.price}}</span>
             </div>
 
             <div class="form-group">
@@ -43,10 +45,11 @@
             <div class="form">
                 <laUpload for="image" class="text-white">Upload Image</label>
                 <input type="file" name="image" id="image" class="form-control">
+                <span class="form-message badge bg-danger">{{errors.img}}</span>
             </div>
 
             <div class="form-group">
-                <a href="/" class="btn btn-warning">Cancel</a>
+                <a href="/products/home" class="btn btn-warning">Cancel</a>
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
