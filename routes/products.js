@@ -4,7 +4,6 @@ const Product = require('./../models/Product');
 const middle = require("../middleware/auth")
 const router = express.Router();
 const multer = require('multer');
-const flash = require('connect-flash');
 const productController = require("../controller/product")
 //define storage for the images 
 const storage = multer.diskStorage({

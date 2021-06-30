@@ -7,11 +7,6 @@ exports.GetRegisterPage = (req, res) => {
 }
 
 exports.PostRegister = (req, res) => {
-    // const errors = validationResult(req)
-    // if(!errors.isEmpty()) {
-    //     const alert = errors.array()
-    //     res.render('register', {alert})
-    // }
     let errors = [];
     let email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(req.body.email);
     let username = /^[a-zA-Z0-9]+$/.test(req.body.username);
@@ -89,7 +84,7 @@ exports.handleLogin = (req, res) => {
         })
     })
     .catch(err =>{
-        res.redirect('/', {errors: 'Username or password is incorrect'});
+        res.render('index', {errors: 'Username or password is incorrect'});
     })
 }
 

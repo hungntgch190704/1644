@@ -23,15 +23,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4 text-white">Editing {{response.product.title}}</h1>
-        {{!-- {{#if response.error }}
-            <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                <div>
-                    {{response.error}}
-                </div>
-            </div>
-        {{/if}} --}}
+        <h1 class="mb-4 text-white">Editing {{product.title}}</h1>
         <form action="/products/{{product.id}}?_method=PUT" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title" class="text-white">Title</label>
