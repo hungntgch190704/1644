@@ -25,7 +25,6 @@ app.get('/', (req, res) =>{
     res.render('index')
 });
 
-app.use(flash());
 app.use(express.static("public"));
 app.use(authRoutes);
 app.use('/products', productRouter);
