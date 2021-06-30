@@ -1,7 +1,6 @@
 const express = require('express');
 const productRouter = require('./routes/products');
 const session = require("express-session");
-const flash = require('connect-flash');
 const authRoutes = require('./routes/auth');
 
 
