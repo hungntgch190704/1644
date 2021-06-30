@@ -13,6 +13,8 @@ mongoose.connect('mongodb+srv://hungnt:hwng.nt1608@cluster0.mrpik.mongodb.net/te
         useCreateIndex: true },
 );
 app.use(session({secret: 'secret_key',saveUninitialized: true,resave: true}));
+
+app.use(express.static(__dirname + '/public'));
 //bring in method override
 const methodOverride = require('method-override');
 

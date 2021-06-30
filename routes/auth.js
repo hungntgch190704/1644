@@ -10,19 +10,7 @@ routerAuth.get('/logout',authController.handleLogout);
 routerAuth.get('/register', authController.GetRegisterPage)
 
 
-routerAuth.post('/register', [
-    check('username', 'This username must be 3+ characters long')
-        .exists()
-        .isLength({ min: 3 }),
-    check('username', 'This username cannot has special characters')
-        .isAlphanumeric(),
-    check('email', 'Email is not valid')
-        .isEmail()
-        .normalizeEmail(),
-    check('password', 'Password must be 6+ characters long')
-        .exists()
-        .isLength({ min: 6 })
-], authController.PostRegister)
+routerAuth.post('/register', authController.PostRegister)
 
 
 
