@@ -17,7 +17,6 @@ exports.PostRegister = (req, res) => {
         flag = false;
     }
     if (req.body.username.length<3){
-        console.log('dit me m');
         errors["username"] = 'Username must be 3+ characters';
         flag = false;
     }
